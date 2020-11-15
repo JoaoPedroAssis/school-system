@@ -36,6 +36,11 @@ gem 'jbuilder', '~> 2.5'
 ## CUSTOM GEMS ##
 gem 'figaro'
 
+gem 'bootstrap', '~> 4.3'
+gem 'bootstrap_form', '>= 4.1.0'
+
+gem 'jquery-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
