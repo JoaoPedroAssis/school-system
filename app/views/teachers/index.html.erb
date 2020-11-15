@@ -1,59 +1,65 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Teachers</h1>
+<div class="row align-items-center justify-content-center my-3 w-100 d-flex" xmlns="http://www.w3.org/1999/html">
+  <div class="box w-100 mx-4 p-4 shadow ">
+    <div class="text-center p-2">
+      <h3 class="text-center">Professores</h3>
+      <%= link_to 'New Teacher', new_teacher_path, class: "m-2 btn btn-dark" %>
+      <div class="table-responsive">
+      <table class="text-center table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th style="padding-left: 0; padding-top: 10px;">Matricula</th>
+            <th style="padding-left: 0; padding-top: 10px;">Nome</th>
+            <th style="padding-left: 0; padding-top: 10px;">Sexo</th>
+            <th style="padding-left: 0; padding-top: 10px;">Estado civil</th>
+            <th style="padding-left: 0; padding-top: 10px;">Filiacao</th>
+            <th style="padding-left: 0; padding-top: 10px;">Titulacao</th>
+            <th style="padding-left: 0; padding-top: 10px;">Endereco</th>
+            <th style="padding-left: 0; padding-top: 10px;">Telefone</th>
+            <th style="padding-left: 0; padding-top: 10px;">Cpf</th>
+            <th style="padding-left: 0; padding-top: 10px;">Identidade</th>
+            <th style="padding-left: 0; padding-top: 10px;">Naturalidade</th>
+            <th style="padding-left: 0; padding-top: 10px;">Cidade</th>
+            <th style="padding-left: 0; padding-top: 10px;">Uf</th>
+            <th style="padding-left: 0; padding-top: 10px;">Pais</th>
+            <th style="padding-left: 0; padding-top: 10px;">Email</th>
+            <th style="padding-left: 0; padding-top: 10px;">Escolaridade</th>
+            <th style="padding-left: 0; padding-top: 10px;">Cargo</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Matricula</th>
-      <th>Nome</th>
-      <th>Sexo</th>
-      <th>Estado civil</th>
-      <th>Filiacao</th>
-      <th>Titulacao</th>
-      <th>Endereco</th>
-      <th>Telefone</th>
-      <th>Cpf</th>
-      <th>Identidade</th>
-      <th>Naturalidade</th>
-      <th>Cidade</th>
-      <th>Uf</th>
-      <th>Pais</th>
-      <th>Email</th>
-      <th>Escolaridade</th>
-      <th>Cargo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <tbody>
+          <% @teachers.each do |teacher| %>
+            <tr>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.matricula %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.nome %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.sexo %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.estado_civil %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.filiacao %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.titulacao %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.endereco %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.telefone %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.cpf %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.identidade %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.naturalidade %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.cidade %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.uf %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.pais %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.email %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.escolaridade %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= teacher.cargo %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= link_to 'Show', teacher %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+              <td style="padding-left: 0; padding-top: 20px;"><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.matricula %></td>
-        <td><%= teacher.nome %></td>
-        <td><%= teacher.sexo %></td>
-        <td><%= teacher.estado_civil %></td>
-        <td><%= teacher.filiacao %></td>
-        <td><%= teacher.titulacao %></td>
-        <td><%= teacher.endereco %></td>
-        <td><%= teacher.telefone %></td>
-        <td><%= teacher.cpf %></td>
-        <td><%= teacher.identidade %></td>
-        <td><%= teacher.naturalidade %></td>
-        <td><%= teacher.cidade %></td>
-        <td><%= teacher.uf %></td>
-        <td><%= teacher.pais %></td>
-        <td><%= teacher.email %></td>
-        <td><%= teacher.escolaridade %></td>
-        <td><%= teacher.cargo %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Teacher', new_teacher_path %>
