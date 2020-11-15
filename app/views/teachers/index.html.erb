@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Teachers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Matricula</th>
+      <th>Nome</th>
+      <th>Sexo</th>
+      <th>Estado civil</th>
+      <th>Filiacao</th>
+      <th>Titulacao</th>
+      <th>Endereco</th>
+      <th>Telefone</th>
+      <th>Cpf</th>
+      <th>Identidade</th>
+      <th>Naturalidade</th>
+      <th>Cidade</th>
+      <th>Uf</th>
+      <th>Pais</th>
+      <th>Email</th>
+      <th>Escolaridade</th>
+      <th>Cargo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teachers.each do |teacher| %>
+      <tr>
+        <td><%= teacher.matricula %></td>
+        <td><%= teacher.nome %></td>
+        <td><%= teacher.sexo %></td>
+        <td><%= teacher.estado_civil %></td>
+        <td><%= teacher.filiacao %></td>
+        <td><%= teacher.titulacao %></td>
+        <td><%= teacher.endereco %></td>
+        <td><%= teacher.telefone %></td>
+        <td><%= teacher.cpf %></td>
+        <td><%= teacher.identidade %></td>
+        <td><%= teacher.naturalidade %></td>
+        <td><%= teacher.cidade %></td>
+        <td><%= teacher.uf %></td>
+        <td><%= teacher.pais %></td>
+        <td><%= teacher.email %></td>
+        <td><%= teacher.escolaridade %></td>
+        <td><%= teacher.cargo %></td>
+        <td><%= link_to 'Show', teacher %></td>
+        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Teacher', new_teacher_path %>
