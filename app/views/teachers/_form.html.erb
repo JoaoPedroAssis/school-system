@@ -1,102 +1,105 @@
-<%= form_with(model: teacher, local: true) do |form| %>
-  <% if teacher.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+<div class="container border p-5">
+  <%= form_with(model: teacher, local: true) do |form| %>
+    <% if teacher.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
 
-      <ul>
-      <% teacher.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% teacher.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <h1><%= action %> Professor</h1>
+
+    <div class="form-group">
+      <%= form.label :matricula %>
+      <%= form.text_field :matricula, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :nome %>
+      <%= form.text_field :nome, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :sexo %>
+      <%= form.text_field :sexo, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :estado_civil %>
+      <%= form.text_field :estado_civil, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :filiacao %>
+      <%= form.text_field :filiacao, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :titulacao %>
+      <%= form.text_field :titulacao, class: 'form-control'%>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :endereco %>
+      <%= form.text_field :endereco, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :telefone %>
+      <%= form.text_field :telefone, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :cpf %>
+      <%= form.text_field :cpf, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :identidade %>
+      <%= form.text_field :identidade, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :naturalidade %>
+      <%= form.text_field :naturalidade, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :cidade %>
+      <%= form.text_field :cidade, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :uf %>
+      <%= form.text_field :uf, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :pais %>
+      <%= form.text_field :pais, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :escolaridade %>
+      <%= form.text_field :escolaridade, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :cargo %>
+      <%= form.text_field :cargo, class: 'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Enviar", class: 'text-center btn btn-dark' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :matricula %>
-    <%= form.text_field :matricula %>
-  </div>
-
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sexo %>
-    <%= form.text_field :sexo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :estado_civil %>
-    <%= form.text_field :estado_civil %>
-  </div>
-
-  <div class="field">
-    <%= form.label :filiacao %>
-    <%= form.text_field :filiacao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :titulacao %>
-    <%= form.text_field :titulacao %>
-  </div>
-
-  <div class="field">
-    <%= form.label :endereco %>
-    <%= form.text_field :endereco %>
-  </div>
-
-  <div class="field">
-    <%= form.label :telefone %>
-    <%= form.text_field :telefone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf %>
-  </div>
-
-  <div class="field">
-    <%= form.label :identidade %>
-    <%= form.text_field :identidade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :naturalidade %>
-    <%= form.text_field :naturalidade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cidade %>
-    <%= form.text_field :cidade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :uf %>
-    <%= form.text_field :uf %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pais %>
-    <%= form.text_field :pais %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :escolaridade %>
-    <%= form.text_field :escolaridade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cargo %>
-    <%= form.text_field :cargo %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

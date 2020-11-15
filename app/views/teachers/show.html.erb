@@ -1,89 +1,91 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Matricula:</strong>
-  <%= @teacher.matricula %>
-</p>
+<div class="row align-items-center justify-content-center my-3 w-100 d-flex" xmlns="http://www.w3.org/1999/html">
+  <div class="box w-100 mx-4 p-4 shadow ">
+    <div class="text-center p-2">
+      <h3 class="text-center">Professor</h3>
+      <%= link_to 'Editar professor', edit_teacher_path(@teacher), class: "m-2 btn btn-dark" %>
+    </div>
+    <div class="table-responsive" id="table-section">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @teacher.nome %>
-</p>
+        <tbody>
+          <tr>
+            <th scope="row">Matricula</th>
+              <td><%= @teacher.matricula %></td>
+            </tr>
+            <tr>
+              <th scope="row">Nome</th>
+              <td><%= @teacher.nome %></td>
+            </tr>
+            <tr>
+              <th scope="row">Sexo</th>
+              <td><%= @teacher.sexo %></td>
+            </tr>
+            <tr>
+              <th scope="row">Estado civil</th>
+              <td><%= @teacher.estado_civil %></td>
+            </tr>
+            <tr>
+              <th scope="row">Filiacao</th>
+              <td><%= @teacher.filiacao %></td>
+            </tr>
+            <tr>
+              <th scope="row">Titulacao</th>
+              <td><%= @teacher.titulacao %></td>
+            </tr>
+            <tr>
+              <th scope="row">Endereco</th>
+              <td><%= @teacher.endereco %></td>
+            </tr>
+            <tr>
+              <th scope="row">Telefone</th>
+              <td><%= @teacher.telefone %></td>
+            </tr>
+            <tr>
+              <th scope="row">Cpf</th>
+              <td><%= @teacher.cpf %></td>
+            </tr>
+            <tr>
+              <th scope="row">Identidade</th>
+              <td><%= @teacher.identidade %></td>
+            </tr>
+            <tr>
+              <th scope="row">Naturalidade</th>
+              <td><%= @teacher.naturalidade %></td>
+            </tr>
+            <tr>
+              <th scope="row">Cidade</th>
+              <td><%= @teacher.cidade %></td>
+            </tr>
+            <tr>
+              <th scope="row">Uf</th>
+              <td><%= @teacher.uf %></td>
+            </tr>
+            <tr>
+              <th scope="row">Email</th>
+              <td><%= @teacher.email %></td>
+            </tr>
+            <tr>
+              <th scope="row">Escolaridade</th>
+              <td><%= @teacher.escolaridade %></td>
+            </tr>
+            <tr>
+              <th scope="row">Cargo</th>
+              <td><%= @teacher.cargo %></td>
+            </tr>
+          </tbody>
 
-<p>
-  <strong>Sexo:</strong>
-  <%= @teacher.sexo %>
-</p>
+      </table>
+            </div>
+  </div>
+</div>
 
-<p>
-  <strong>Estado civil:</strong>
-  <%= @teacher.estado_civil %>
-</p>
 
-<p>
-  <strong>Filiacao:</strong>
-  <%= @teacher.filiacao %>
-</p>
-
-<p>
-  <strong>Titulacao:</strong>
-  <%= @teacher.titulacao %>
-</p>
-
-<p>
-  <strong>Endereco:</strong>
-  <%= @teacher.endereco %>
-</p>
-
-<p>
-  <strong>Telefone:</strong>
-  <%= @teacher.telefone %>
-</p>
-
-<p>
-  <strong>Cpf:</strong>
-  <%= @teacher.cpf %>
-</p>
-
-<p>
-  <strong>Identidade:</strong>
-  <%= @teacher.identidade %>
-</p>
-
-<p>
-  <strong>Naturalidade:</strong>
-  <%= @teacher.naturalidade %>
-</p>
-
-<p>
-  <strong>Cidade:</strong>
-  <%= @teacher.cidade %>
-</p>
-
-<p>
-  <strong>Uf:</strong>
-  <%= @teacher.uf %>
-</p>
-
-<p>
-  <strong>Pais:</strong>
-  <%= @teacher.pais %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @teacher.email %>
-</p>
-
-<p>
-  <strong>Escolaridade:</strong>
-  <%= @teacher.escolaridade %>
-</p>
-
-<p>
-  <strong>Cargo:</strong>
-  <%= @teacher.cargo %>
-</p>
-
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+ 
