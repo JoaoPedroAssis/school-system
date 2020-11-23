@@ -1,44 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Codigo:</strong>
-  <%= @course.codigo %>
-</p>
+<div class="row align-items-center justify-content-center my-3 w-100 d-flex" xmlns="http://www.w3.org/1999/html">
+  <div class="box w-100 mx-4 p-4 shadow ">
+    <div class="text-center p-2">
+      <h3 class="text-center">Curso</h3>
+      <%= link_to 'Editar curso', edit_course_path(@course), class: "m-2 btn btn-dark" %>
+    </div>
+    <div class="table-responsive" id="table-section">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @course.descricao %>
-</p>
-
-<p>
-  <strong>Horas aula:</strong>
-  <%= @course.horas_aula %>
-</p>
-
-<p>
-  <strong>Vagas total:</strong>
-  <%= @course.vagas_total %>
-</p>
-
-<p>
-  <strong>Vagas ocupadas:</strong>
-  <%= @course.vagas_ocupadas %>
-</p>
-
-<p>
-  <strong>Data inicio:</strong>
-  <%= @course.data_inicio %>
-</p>
-
-<p>
-  <strong>Data fim:</strong>
-  <%= @course.data_fim %>
-</p>
-
-<p>
-  <strong>Teacher:</strong>
-  <%= @course.teacher %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+        <tbody>
+        <tr>
+          <th scope="row">Codigo</th>
+          <td><%= @course.codigo %></td>
+        </tr>
+        <tr>
+          <th scope="row">Descricao</th>
+          <td><%= @course.descricao %></td>
+        </tr>
+        <tr>
+          <th scope="row">Horas aula</th>
+          <td><%= @course.horas_aula %></td>
+        </tr>
+        <tr>
+          <th scope="row">Vagas total</th>
+          <td><%= @course.vagas_total %></td>
+        </tr>
+        <tr>
+          <th scope="row">Vagas ocupadas</th>
+          <td><%= @course.vagas_ocupadas %></td>
+        </tr>
+        <tr>
+          <th scope="row">Data inicio</th>
+          <td><%= @course.data_inicio.strftime("%d/%m/%Y")%></td>
+        </tr>
+        <tr>
+          <th scope="row">Data fim</th>
+          <td><%= @course.data_fim.strftime("%d/%m/%Y") %></td>
+        </tr>
+        <tr>
+          <th scope="row">Professor</th>
+          <td><%= link_to @course.teacher.nome, teacher_path(@course.teacher) %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="d-flex justify-content-center p-5">
+      <%= link_to 'Voltar', courses_path, class: "d-flex btn btn-dark" %>
+    </div>
+  </div>
+</div>
