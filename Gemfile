@@ -38,6 +38,7 @@ gem 'figaro'
 
 gem 'bootstrap', '~> 4.3'
 gem 'bootstrap_form', '>= 4.1.0'
+gem "font-awesome-rails"
 
 gem 'jquery-rails'
 
