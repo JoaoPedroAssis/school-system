@@ -26,38 +26,35 @@ class TeachersController < ApplicationController
   def create
     @teacher = Teacher.new(teacher_params)
 
-    respond_to do |format|
-      if @teacher.save
-        format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
-        format.json { render :show, status: :created, location: @teacher }
-      else
-        format.html { render :new }
-        format.json { render json: @teacher.errors, status: :unprocessable_entity }
-      end
+    if @teacher.save
+      flash[:success] = "Professor criado com sucesso"
+      redirect_to courses_path
+    else
+      flash[:error] = "Não foi possível criar o professor"
+      redirect_to courses_path
     end
   end
 
   # PATCH/PUT /teachers/1
   # PATCH/PUT /teachers/1.json
   def update
-    respond_to do |format|
-      if @teacher.update(teacher_params)
-        format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }
-        format.json { render :show, status: :ok, location: @teacher }
-      else
-        format.html { render :edit }
-        format.json { render json: @teacher.errors, status: :unprocessable_entity }
-      end
+    if @teacher.update(teacher_params)
+      flash[:success] = "Professor atualizado com sucesso"
+      redirect_to course_path(@course)
+    else
+      flash[:error] = "Não foi possível atualizar o professor"
+      redirect_to courses_path
     end
   end
 
   # DELETE /teachers/1
   # DELETE /teachers/1.json
   def destroy
-    @teacher.destroy
-    respond_to do |format|
-      format.html { redirect_to teachers_url, notice: 'Teacher was successfully destroyed.' }
-      format.json { head :no_content }
+    if @teacher.destroy
+      flash[:success] = "Curso deletado com sucesso"
+      redirect_to courses_path
+    else
+      flash[:success] = "Não foi possível deletar o curso"
     end
   end
 
