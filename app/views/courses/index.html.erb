@@ -3,10 +3,12 @@
     <div class="text-center p-2">
       <h3 class="text-center">Cursos</h3>
       <%= link_to 'Criar Curso', new_course_path, class: "m-2 btn btn-dark" %>
+      <%= link_to 'Rodar Semestre', run_semester_path, class: "m-2 btn btn-dark", method: :post, data: {confirm: "Você tem certeza?"} %>
       <div class="table-responsive">
         <table class="text-center table table-striped">
           <thead class="thead-dark">
           <tr>
+            <th></th>
             <th>Codigo</th>
             <th>Descricao</th>
             <th>Horas aula</th>
@@ -22,6 +24,15 @@
           <tbody>
           <% @courses.each do |course| %>
             <tr>
+              <% if course.has_enough_students %>
+                <td style="padding-left: 0; padding-top: 20px;" style="color: #6DC96D">
+                  <i style="color: #6DC96D" class="fa fa-check"></i>
+                </td>
+              <% else %>
+                <td style="padding-left: 0; padding-top: 20px;">
+                  <i style="color: #EA6460" class="fa fa-exclamation"></i>
+                </td>
+              <% end %>
               <td style="padding-left: 0; padding-top: 20px;"><%= course.codigo %></td>
               <td style="padding-left: 0; padding-top: 20px;"><%= course.descricao %></td>
               <td style="padding-left: 0; padding-top: 20px;"><%= course.horas_aula %></td>
@@ -44,7 +55,7 @@
               </td>
               <td>
                 <%= link_to course, method: :delete, data: { confirm: 'Você tem certeza?' } do %>
-                  <i class="fa fa-trash" style="color: red"></i>
+                  <i class="fa fa-trash" style="color: #EA6460"></i>
                 <% end %>
               </td>
             </tr>

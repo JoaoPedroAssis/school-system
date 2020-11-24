@@ -89,6 +89,27 @@ class CoursesController < ApplicationController
     end
   end
 
+  def run_semester
+    deu_bom = deu_ruim = 0
+    Course.all.each do |course|
+      if course.vagas_ocupadas < 20
+        if course.destroy
+          deu_bom += 1
+        else
+          deu_ruim += 1
+        end
+      end
+    end
+
+    unless deu_ruim != 0
+      flash[:success] = "#{deu_bom} cursos foram desvinculados com sucesso"
+    else
+      flash[:warning] = "#{deu_bom} cursos foram desviculados com sucesso. Não foi possível desvincular #{deu_ruim} cursos"
+    end
+
+    redirect_to courses_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
