@@ -50,9 +50,21 @@
               <td style="padding-left: 0; padding-top: 20px;"><%= teacher.email %></td>
               <td style="padding-left: 0; padding-top: 20px;"><%= teacher.escolaridade %></td>
               <td style="padding-left: 0; padding-top: 20px;"><%= teacher.cargo %></td>
-              <td style="padding-left: 0; padding-top: 20px;"><%= link_to 'Show', teacher %></td>
-              <td style="padding-left: 0; padding-top: 20px;"><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-              <td style="padding-left: 0; padding-top: 20px;"><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td>
+                <%= link_to teacher do %>
+                  <i class="fa fa-mail-forward"></i>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_teacher_path(teacher) do %>
+                  <i class="fa fa-rotate-left"></i>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to teacher, method: :delete, data: { confirm: 'Você tem certeza?' } do %>
+                  <i class="fa fa-trash" style="color: red"></i>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
