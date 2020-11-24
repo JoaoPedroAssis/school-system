@@ -107,8 +107,8 @@ INSERT INTO teachers (id, matricula, nome, sexo, estado_civil, filiacao, titulac
 
 /* Seed Cursos */
 
-INSERT INTO courses (id, codigo, descricao, horas_aula, vagas_total, vagas_ocupadas, data_inicio, data_fim, teacher_id, created_at, updated_at) VALUES (1, 1, 'Curso1', 90, 30, 0, CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 20 DAY ), 1, NOW(), NOW());
-INSERT INTO courses (id, codigo, descricao, horas_aula, vagas_total, vagas_ocupadas, data_inicio, data_fim, teacher_id, created_at, updated_at) VALUES (2, 2, 'Curso2', 90, 30, 0, CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 20 DAY ), 2, NOW(), NOW());
-INSERT INTO courses (id, codigo, descricao, horas_aula, vagas_total, vagas_ocupadas, data_inicio, data_fim, teacher_id, created_at, updated_at) VALUES (3, 3, 'Curso3', 90, 30, 0, CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 20 DAY ), 3, NOW(), NOW());
-INSERT INTO courses (id, codigo, descricao, horas_aula, vagas_total, vagas_ocupadas, data_inicio, data_fim, teacher_id, created_at, updated_at) VALUES (4, 4, 'Curso4', 90, 30, 0, CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 20 DAY ), 4, NOW(), NOW());
-INSERT INTO courses (id, codigo, descricao, horas_aula, vagas_total, vagas_ocupadas, data_inicio, data_fim, teacher_id, created_at, updated_at) VALUES (5, 5, 'Curso5', 90, 30, 0, CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 20 DAY ), 5, NOW(), NOW());
+INSERT INTO courses (id, codigo, descricao, horas_aula, vagas_total, vagas_ocupadas, data_inicio, data_fim, teacher_id, created_at, updated_at) VALUES (1, 1, 'Curso1', 90, 40, 0, CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 20 DAY ), 1, NOW(), NOW());
+INSERT INTO courses (id, codigo, descricao, horas_aula, vagas_total, vagas_ocupadas, data_inicio, data_fim, teacher_id, created_at, updated_at) VALUES (2, 2, 'Curso2', 90, 40, 0, CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 20 DAY ), 2, NOW(), NOW());
+INSERT INTO courses (id, codigo, descricao, horas_aula, vagas_total, vagas_ocupadas, data_inicio, data_fim, teacher_id, created_at, updated_at) VALUES (3, 3, 'Curso3', 90, 40, 0, CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 20 DAY ), 3, NOW(), NOW());
+INSERT INTO courses (id, codigo, descricao, horas_aula, vagas_total, vagas_ocupadas, data_inicio, data_fim, teacher_id, created_at, updated_at) VALUES (4, 4, 'Curso4', 90, 40, 0, CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 20 DAY ), 4, NOW(), NOW());
+INSERT INTO courses (id, codigo, descricao, horas_aula, vagas_total, vagas_ocupadas, data_inicio, data_fim, teacher_id, created_at, updated_at) VALUES (5, 5, 'Curso5', 90, 40, 0, CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 20 DAY ), 5, NOW(), NOW());
