@@ -28,10 +28,10 @@ class TeachersController < ApplicationController
 
     if @teacher.save
       flash[:success] = "Professor criado com sucesso"
-      redirect_to courses_path
+      redirect_to teacher_path(@teacher)
     else
       flash[:error] = "Não foi possível criar o professor"
-      redirect_to courses_path
+      redirect_to teachers_path
     end
   end
 
@@ -40,10 +40,10 @@ class TeachersController < ApplicationController
   def update
     if @teacher.update(teacher_params)
       flash[:success] = "Professor atualizado com sucesso"
-      redirect_to course_path(@course)
+      redirect_to teacher_path(@teacher)
     else
       flash[:error] = "Não foi possível atualizar o professor"
-      redirect_to courses_path
+      redirect_to teachers_path
     end
   end
 
@@ -52,7 +52,7 @@ class TeachersController < ApplicationController
   def destroy
     if @teacher.destroy
       flash[:success] = "Curso deletado com sucesso"
-      redirect_to courses_path
+      redirect_to teachers_path
     else
       flash[:success] = "Não foi possível deletar o curso"
     end
