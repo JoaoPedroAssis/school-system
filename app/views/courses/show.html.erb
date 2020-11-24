@@ -5,6 +5,7 @@
     <div class="text-center p-2">
       <h3 class="text-center">Curso</h3>
       <%= link_to 'Editar curso', edit_course_path(@course), class: "m-2 btn btn-dark" %>
+      <%= link_to 'Matricular Aluno', enroll_student_path(@course), class: "m-2 btn btn-dark" %>
     </div>
     <div class="table-responsive" id="table-section">
       <table class="table table-striped">
@@ -48,6 +49,33 @@
           <th scope="row">Professor</th>
           <td><%= link_to @course.teacher.nome, teacher_path(@course.teacher) %></td>
         </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="row align-items-center justify-content-center my-3 w-100 d-flex" xmlns="http://www.w3.org/1999/html">
+  <div class="box w-100 mx-4 p-4 shadow ">
+    <div class="text-center p-2">
+      <h3 class="text-center">Alunos Matriculados</h3>
+    </div>
+    <div class="table-responsive" id="table-section">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Matrícula</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @course.students.each do |student| %>
+          <tr>
+            <td><%= student.nome %></td>
+            <td><%= student.matricula %></td>
+          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>

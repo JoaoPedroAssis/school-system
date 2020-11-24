@@ -90,5 +90,36 @@
   </div>
 </div>
 
+<div class="row align-items-center justify-content-center my-3 w-100 d-flex" xmlns="http://www.w3.org/1999/html">
+  <div class="box w-100 mx-4 p-4 shadow ">
+    <div class="text-center p-2">
+      <h3 class="text-center">Cursos Lecionados</h3>
+    </div>
+    <div class="table-responsive" id="table-section">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Código</th>
+          <th scope="col">Data Início</th>
+          <th scope="col">Data Fim</th>
+        </tr>
+        </thead>
 
+        <tbody>
+        <% @teacher.courses.each do |course| %>
+          <tr>
+            <td><%= link_to course.codigo, course_path(course) %>
+            </td>
+            <td><%= course.data_inicio.strftime("%d/%m/%Y") %></td>
+            <td><%= course.data_fim.strftime("%d/%m/%Y") %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="d-flex justify-content-center p-5">
+      <%= link_to 'Voltar', courses_path, class: "d-flex btn btn-dark" %>
+    </div>
+  </div>
+</div>
  
