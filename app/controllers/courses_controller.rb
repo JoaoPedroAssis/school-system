@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy, :enroll_student]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :add_student, :enroll_student]
 
   # GET /courses
   # GET /courses.json
@@ -58,19 +58,33 @@ class CoursesController < ApplicationController
     end
   end
 
-  def enroll_student
-    @student = Student.find params[:student_id]
+  def add_student
+    @students = Student.all.select{|student| not @course.students.include? student }
+  end
 
-    @course.students << @student
-    unless @course.vagas_ocupadas > @course.total_vagas
-      @course.vagas_ocupadas += 1
+  def enroll_student
+    params[:student_ids].each do |student_id|
+      student = Student.find student_id.to_i
+      @course.students << student
+      if @course.vagas_ocupadas <= @course.vagas_total
+        @course.vagas_ocupadas += 1
+      else
+        if @course.save
+          flash[:warning] = "Nem todos os alunos foram matriculados devido ao total de vagas"
+          redirect_to courses_path
+        else
+          flash[:error] = "Não foi possível matricular os alunos"
+          redirect_to courses_path
+        end
+        break
+      end
     end
 
     if @course.save
-      flash[:success] = "Aluno matriculado com sucesso"
+      flash[:success] = "Alunos matriculados com sucesso"
       redirect_to courses_path
     else
-      flash[:error] = "Não foi possível matricular aluno"
+      flash[:error] = "Não foi possível matricular os alunos"
       redirect_to courses_path
     end
   end

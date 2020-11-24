@@ -3,7 +3,7 @@
     <div class="text-center p-2">
       <h3 class="text-center">Curso</h3>
       <%= link_to 'Editar curso', edit_course_path(@course), class: "m-2 btn btn-dark" %>
-      <%= link_to 'Matricular Aluno', enroll_student_path(@course), class: "m-2 btn btn-dark" %>
+      <%= link_to 'Matricular Aluno', add_student_path(@course), class: "m-2 btn btn-dark" %>
     </div>
     <div class="table-responsive" id="table-section">
       <table class="table table-striped">
@@ -70,7 +70,7 @@
         <tbody>
         <% @course.students.each do |student| %>
           <tr>
-            <td><%= student.nome %></td>
+            <td><%= link_to student.nome, student_path(student) %></td>
             <td><%= student.matricula %></td>
           </tr>
         <% end %>
