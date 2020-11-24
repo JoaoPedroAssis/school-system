@@ -17,3 +17,10 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require select2-full
+
+$(document).ready(() => {
+    $(".add-student" ).select2({
+        theme: "bootstrap"
+    });
+})

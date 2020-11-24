@@ -1,0 +1,15 @@
+<div class="container border p-5">
+  <%= form_with url: add_student_url, method: :post do |form| %>
+    <h1>Matricula de alunos no curso <%= @course.codigo %></h1>
+
+    <div class="form-group">
+      <%= form.label :student_ids, "Selecione os alunos que deseja matricular" %>
+      <%= select_tag :student_ids, options_from_collection_for_select(@students, "id", "nome"), {class: 'add-student select2 form-control w-25', :multiple => true, required: true} %>
+    </div>
+
+    <div class="actions">
+      <%= form.hidden_field :id, :value => @course.id %>
+      <%= form.submit "Enviar", class: 'text-center btn btn-dark' %>
+    </div>
+  <% end %>
+</div>
