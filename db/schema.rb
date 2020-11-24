@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_203454) do
+ActiveRecord::Schema.define(version: 2020_11_24_003735) do
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "codigo"
     t.text "descricao"
     t.integer "horas_aula"
     t.integer "vagas_total"
-    t.integer "vagas_ocupadas"
+    t.integer "vagas_ocupadas", default: 0
     t.date "data_inicio"
     t.date "data_fim"
     t.bigint "teacher_id"
