@@ -1,6 +1,6 @@
-<h1>Editing Student</h1>
+<%= render 'form', student: @student, action: "Editar" %>
 
-<%= render 'form', student: @student %>
+<div class="d-flex justify-content-center p-5">
+  <%= link_to 'Voltar', students_path, class: "d-flex btn btn-dark" %>
+</div>
 
-<%= link_to 'Show', @student %> |
-<%= link_to 'Back', students_path %>

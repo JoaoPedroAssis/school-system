@@ -1,89 +1,95 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Matricula:</strong>
-  <%= @student.matricula %>
-</p>
+<div class="row align-items-center justify-content-center my-3 w-100 d-flex" xmlns="http://www.w3.org/1999/html">
+  <div class="box w-100 mx-4 p-4 shadow ">
+    <div class="text-center p-2">
+      <h3 class="text-center">Aluno</h3>
+      <%= link_to 'Editar Aluno', edit_student_path(@student), class: "m-2 btn btn-dark" %>
+    </div>
+    <div class="table-responsive" id="table-section">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @student.nome %>
-</p>
+        <tbody>
+        <tr>
+          <th scope="row">Matricula</th>
+          <td><%= @student.matricula %></td>
+        </tr>
+        <tr>
+          <th scope="row">Nome</th>
+          <td><%= @student.nome %></td>
+        </tr>
+        <tr>
+          <th scope="row">Sexo</th>
+          <td><%= @student.sexo %></td>
+        </tr>
+        <tr>
+          <th scope="row">Estado civil</th>
+          <td><%= @student.estado_civil %></td>
+        </tr>
+        <tr>
+          <th scope="row">Filiacao</th>
+          <td><%= @student.filiacao %></td>
+        </tr>
+        <tr>
+          <th scope="row">Endereco</th>
+          <td><%= @student.endereco %></td>
+        </tr>
+        <tr>
+          <th scope="row">Telefone</th>
+          <td><%= @student.telefone %></td>
+        </tr>
+        <tr>
+          <th scope="row">Email</th>
+          <td><%= @student.email %></td>
+        </tr>
+        <tr>
+          <th scope="row">Esporte preferido</th>
+          <td><%= @student.esporte_preferido %></td>
+        </tr>
+        <tr>
+          <th scope="row">Escolaridade</th>
+          <td><%= @student.escolaridade %></td>
+        </tr>
+        <tr>
+          <th scope="row">Naturalidade</th>
+          <td><%= @student.naturalidade %></td>
+        </tr>
+        <tr>
+          <th scope="row">Cidade</th>
+          <td><%= @student.cidade %></td>
+        </tr>
+        <tr>
+          <th scope="row">Uf</th>
+          <td><%= @student.uf %></td>
+        </tr>
+        <tr>
+          <th scope="row">País</th>
+          <td><%= @student.pais %></td>
+        </tr>
+        <tr>
+          <th scope="row">Cargo</th>
+          <td><%= @student.cargo %></td>
+        </tr>
+        <tr>
+          <th scope="row">Cpf</th>
+          <td><%= @student.cpf %></td>
+        </tr>
+        <tr>
+          <th scope="row">Identidade</th>
+          <td><%= @student.identidade %></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="d-flex justify-content-center p-5">
+      <%= link_to 'Voltar', students_path, class: "d-flex btn btn-dark" %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Sexo:</strong>
-  <%= @student.sexo %>
-</p>
-
-<p>
-  <strong>Estado civil:</strong>
-  <%= @student.estado_civil %>
-</p>
-
-<p>
-  <strong>Filiacao:</strong>
-  <%= @student.filiacao %>
-</p>
-
-<p>
-  <strong>Endereco:</strong>
-  <%= @student.endereco %>
-</p>
-
-<p>
-  <strong>Telefone:</strong>
-  <%= @student.telefone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @student.email %>
-</p>
-
-<p>
-  <strong>Esporte preferido:</strong>
-  <%= @student.esporte_preferido %>
-</p>
-
-<p>
-  <strong>Escolaridade:</strong>
-  <%= @student.escolaridade %>
-</p>
-
-<p>
-  <strong>Naturalidade:</strong>
-  <%= @student.naturalidade %>
-</p>
-
-<p>
-  <strong>Cidade:</strong>
-  <%= @student.cidade %>
-</p>
-
-<p>
-  <strong>Uf:</strong>
-  <%= @student.uf %>
-</p>
-
-<p>
-  <strong>Pais:</strong>
-  <%= @student.pais %>
-</p>
-
-<p>
-  <strong>Cargo:</strong>
-  <%= @student.cargo %>
-</p>
-
-<p>
-  <strong>Cpf:</strong>
-  <%= @student.cpf %>
-</p>
-
-<p>
-  <strong>Identidade:</strong>
-  <%= @student.identidade %>
-</p>
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
