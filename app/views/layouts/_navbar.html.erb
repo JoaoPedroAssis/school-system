@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Sistema Escolas</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <%= link_to 'Professores', teachers_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'Alunos', students_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'Cursos', courses_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>
+<%= render 'layouts/flash-notification-bar' %>
