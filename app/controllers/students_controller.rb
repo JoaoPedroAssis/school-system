@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :cancel_registration]
 
   # GET /students
   # GET /students.json
@@ -58,6 +58,18 @@ class StudentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def cancel_registration
+    @student.courses.delete(Course.find params[:course])
+
+    if @student.save
+      flash[:success] = "Matrícula cancelada com sucesso"
+      redirect_to student_path(@student)
+    else
+      flash[:error] = "Não foi possível cancelar a matrícula"
+      redirect_to student_path(@student)
     end
   end
 

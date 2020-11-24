@@ -103,6 +103,7 @@
             <th scope="col">Código</th>
             <th scope="col">Data Início</th>
             <th scope="col">Data Fim</th>
+            <th scope="col">Remover Matrícula</th>
           </tr>
         </thead>
 
@@ -112,6 +113,11 @@
             <td><%= link_to course.codigo, course_path(course) %></td>
             <td><%= course.data_inicio.strftime("%d/%m/%Y") %></td>
             <td><%= course.data_fim.strftime("%d/%m/%Y") %></td>
+            <td>
+              <%= link_to cancel_registration_path(@student, course), method: :delete do %>
+                <i class="fa fa-minus" style="color: red"></i>
+              <% end %>
+            </td>
           </tr>
         <% end %>
         </tbody>
