@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :enroll_student]
 
   # GET /courses
   # GET /courses.json
@@ -26,38 +26,52 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
 
-    respond_to do |format|
-      if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
-        format.json { render :show, status: :created, location: @course }
-      else
-        format.html { render :new }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
+    if @course.save
+      flash[:success] = "Curso criado com sucesso"
+      redirect_to courses_path
+    else
+      flash[:error] = "Não foi possível criar o curso"
+      redirect_to courses_path
     end
   end
 
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
-    respond_to do |format|
-      if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-        format.json { render :show, status: :ok, location: @course }
-      else
-        format.html { render :edit }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
+    if @course.update(course_params)
+      flash[:success] = "Curso atualizado com sucesso"
+      redirect_to course_path(@course)
+    else
+      flash[:error] = "Não foi possível atualizar o curso"
+      redirect_to courses_path
     end
   end
 
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
-    @course.destroy
-    respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
-      format.json { head :no_content }
+    if @course.destroy
+      flash[:success] = "Curso deletado com sucesso"
+      redirect_to courses_path
+    else
+      flash[:success] = "Não foi possível deletar o curso"
+    end
+  end
+
+  def enroll_student
+    @student = Student.find params[:student_id]
+
+    @course.students << @student
+    unless @course.vagas_ocupadas > @course.total_vagas
+      @course.vagas_ocupadas += 1
+    end
+
+    if @course.save
+      flash[:success] = "Aluno matriculado com sucesso"
+      redirect_to courses_path
+    else
+      flash[:error] = "Não foi possível matricular aluno"
+      redirect_to courses_path
     end
   end
 
