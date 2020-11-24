@@ -71,10 +71,10 @@ class CoursesController < ApplicationController
       else
         if @course.save
           flash[:warning] = "Nem todos os alunos foram matriculados devido ao total de vagas"
-          redirect_to courses_path
+          redirect_to course_path(@course)
         else
           flash[:error] = "Não foi possível matricular os alunos"
-          redirect_to courses_path
+          redirect_to course_path(@course)
         end
         break
       end
@@ -82,10 +82,10 @@ class CoursesController < ApplicationController
 
     if @course.save
       flash[:success] = "Alunos matriculados com sucesso"
-      redirect_to courses_path
+      redirect_to course_path(@course)
     else
       flash[:error] = "Não foi possível matricular os alunos"
-      redirect_to courses_path
+      redirect_to course_path(@course)
     end
   end
 
